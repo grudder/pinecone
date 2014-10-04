@@ -54,13 +54,13 @@ public class HomeController
         return new ModelAndView("home/index", "user", user);
     }
 
-    @RequestMapping(value = "/production", method = RequestMethod.GET)
+    @RequestMapping(value = "/home/production", method = RequestMethod.GET)
     public String production()
     {
         return "home/production";
     }
 
-    @RequestMapping(value = "/share", method = RequestMethod.GET)
+    @RequestMapping(value = "/home/share", method = RequestMethod.GET)
     public String share()
     {
         return "home/share";
