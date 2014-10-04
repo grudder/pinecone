@@ -1,7 +1,7 @@
 # Server settings (ServerProperties)
 server:
+  #address: wangrui
   port: 8080
-  address: wangrui
   sessionTimeout: 30
 
 # Spring settings
