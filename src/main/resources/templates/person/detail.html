@@ -4,8 +4,14 @@
 	layout:decorator="layout">
 <head>
 	<title>人物选择</title>
+	
+    <script type="text/javascript">
+		$(function () {
+			$("body").fadeIn(1000);
+		});
+	</script>
 </head>
-<body>
+<body style="display: none">
 	<div layout:fragment="content">
 		<img th:src="${imgUrl}" src="/img/person/1b.jpg" style="cursor: pointer" title="点击返回" onclick="history.back()" />
 	</div>

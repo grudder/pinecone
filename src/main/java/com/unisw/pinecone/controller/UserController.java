@@ -34,7 +34,7 @@ public class UserController
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
 
-        return "user/list";
+        return "/user/list";
     }
 
     private void initUsers()

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class OrderController
 {
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String person()
+    public String create()
     {
-        return "order/create";
+        return "/order/create";
     }
 }

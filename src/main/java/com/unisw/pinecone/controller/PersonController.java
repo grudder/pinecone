@@ -1,5 +1,7 @@
 package com.unisw.pinecone.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PersonController
 {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String person()
+    public String person(HttpServletRequest request)
     {
-        return "person/list";
+        if (request.getSession().getAttribute("user") != null)
+        {
+            return "redirect:/order/create";
+        }
+
+        return "/person/list";
     }
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
@@ -21,7 +28,7 @@ public class PersonController
     {
         imgUrl = imgUrl.replace("s.jpg", "b.jpg");
         model.addAttribute("imgUrl", imgUrl);
-        
-        return "person/detail";
+
+        return "/person/detail";
     }
 }

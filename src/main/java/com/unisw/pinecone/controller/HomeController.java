@@ -51,18 +51,18 @@ public class HomeController
         // 将用户信息记入Session
         request.getSession().setAttribute("user", user);
 
-        return new ModelAndView("home/index", "user", user);
+        return new ModelAndView("/home/index", "user", user);
     }
 
     @RequestMapping(value = "/home/production", method = RequestMethod.GET)
     public String production()
     {
-        return "home/production";
+        return "/home/production";
     }
 
     @RequestMapping(value = "/home/share", method = RequestMethod.GET)
     public String share()
     {
-        return "home/share";
+        return "/home/share";
     }
 }

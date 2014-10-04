@@ -4,12 +4,35 @@
 	layout:decorator="layout">
 <head>
 	<title>松塔制作</title>
+	<link type="text/css" rel="stylesheet" href="/webjars/swiper/2.6.1/idangerous.swiper.css" />
+	<script type="text/javascript" src="/webjars/swiper/2.6.1/idangerous.swiper.min.js"></script>
+	
+	<script type="text/javascript" src="../../static/js/production.js" th:src="@{/js/production.js}"></script>
+
+	<style>
+		.swiper-container, .swiper-slide {
+			width: 640px;
+			height: 1080px;
+		}
+	</style>
 </head>
 <body>
-	<div layout:fragment="content">
-		<img src="/img/p2/p21.jpg" style="position: absolute; z-index: 0" />
-	
-		<img src="/img/p2/1.png" style="position: absolute; z-index: 1; left: 300px; top: 770px" />
+	<div layout:fragment="content" class="swiper-container">
+		<img id="arrow" src="../../static/img/p2/1.png" th:src="@{/img/p2/1.png}" style="position: absolute; z-index: 1; left: 300px; top: 770px" />
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="../../static/img/p2/p21.jpg" th:src="@{/img/p2/p21.jpg}" style="position: absolute; z-index: 0" />
+			</div>
+			<div class="swiper-slide">
+				<img src="../../static/img/p2/p22.jpg" th:src="@{/img/p2/p22.jpg}" style="position: absolute; z-index: 0" />
+			</div>
+			<div class="swiper-slide">
+				<img src="../../static/img/p2/p23.jpg" th:src="@{/img/p2/p23.jpg}" style="position: absolute; z-index: 0" />
+			</div>
+			<div class="swiper-slide">
+				<img src="../../static/img/p2/p24.jpg" th:src="@{/img/p2/p24.jpg}" style="position: absolute; z-index: 0" />
+			</div>
+		</div>
 	</div>
 </body>
 </html>

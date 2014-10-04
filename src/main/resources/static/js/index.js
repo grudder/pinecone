@@ -19,9 +19,9 @@ function squirrelUp() {
 				if (_clickCount == 3) {
 					// 松果落下
 					var pineconeTop = $("#background").height() - $("#pinecone").height();
-					$("#pinecone").animate({'top': pineconeTop + 'px'}, "slow", function () {
+					$("#pinecone").animate({'top': pineconeTop + 'px'}, 2000, function () {
 						// 页面淡出
-						$("body").fadeOut(5000, function () {
+						$("body").fadeOut(2000, function () {
 							location.href = "/home/production";
 						});
 					});
