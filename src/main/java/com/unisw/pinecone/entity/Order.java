@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "T_ORDER")
 public class Order
@@ -24,12 +26,15 @@ public class Order
     private User user;
 
     @Column(name = "RECEIVER_NAME", length = 20)
+    @NotEmpty(message = "收塔人不能为空。")
     private String reveiverName;
 
     @Column(length = 20)
+    @NotEmpty(message = "手机号码不能为空。")
     private String mobile;
 
     @Column(length = 200)
+    @NotEmpty(message = "详细地址不能为空。")
     private String address;
 
     @Column(length = 1000)
@@ -37,6 +42,16 @@ public class Order
 
     @Column(name = "CREATE_TIME")
     private Date createTime;
+
+    public long getId()
+    {
+        return id;
+    }
+
+    public void setId(long id)
+    {
+        this.id = id;
+    }
 
     public User getUser()
     {

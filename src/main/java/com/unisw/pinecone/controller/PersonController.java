@@ -17,7 +17,7 @@ public class PersonController
     {
         if (request.getSession().getAttribute("user") != null)
         {
-            return "redirect:/order/create";
+            return "redirect:/order/create?form";
         }
 
         return "/person/list";

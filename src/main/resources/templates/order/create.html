@@ -14,29 +14,44 @@
 			</div>
 			<p>您已获得牛社马尾松塔试吃权，请填写以下信息，我们将尽快安排配送：</p>
 			<div style="background-color: white">
-				<form class="form-horizontal" role="form">
+				<br />
+				<form class="form-horizontal" role="form" method="post"
+					th:action="@{/order/create}" th:object="${order}">
+					<div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
+						<p th:each="error : ${#fields.errors('*')}" th:text="${error}">
+							验证错误
+						</p>
+					</div>
 					<div class="form-group">
 						<label for="pname" class="col-sm-2 control-label">收塔人</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="pname" />
+							<input type="text" class="form-control" maxlength="20"
+								th:field="*{reveiverName}"
+								th:class="${#fields.hasErrors('reveiverName')} ? 'field-error' : 'form-control'" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="TelephoneNumber" class="col-sm-2 control-label">手机号码</label>
 						<div class="col-sm-4">
-							<input type="text" id="TelephoneNumber" class="form-control" />
+							<input type="text" class="form-control" maxlength="20"
+								th:field="*{mobile}"
+								th:class="${#fields.hasErrors('mobile')} ? 'field-error' : 'form-control'" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="addess" class="col-sm-2 control-label">详细地址</label>
+						<label for="address" class="col-sm-2 control-label">详细地址</label>
 						<div class="col-sm-4">
-							<input type="text" id="addess" class="form-control" />
+							<input type="text" class="form-control" maxlength="200"
+								th:field="*{address}"
+								th:class="${#fields.hasErrors('address')} ? 'field-error' : 'form-control'" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="remark" class="col-sm-2 control-label">备注</label>
 						<div class="col-sm-4">
-							<input type="text" id="remark" class="form-control" />
+							<input type="text" class="form-control" maxlength="1000"
+								th:field="*{remark}"
+								th:class="${#fields.hasErrors('remark')} ? 'field-error' : 'form-control'" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -45,7 +60,7 @@
 								style="background-color: #1c2c58">点击提交</button>
 						</div>
 					</div>
-					<p>*提交后会进入分享页面，您可以忽略页面中的购买按钮</p>
+					<p>*提交后会进入分享页面，您可以忽略页面中的购买按钮。</p>
 				</form>
 			</div>
 		</div>
