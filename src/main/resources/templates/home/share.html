@@ -4,12 +4,18 @@
 	layout:decorator="layout">
 <head>
 	<title>分享购买</title>
+	<script type="text/javascript">
+		function showShare(){
+			$("#share").show();
+		}
+	</script>
 </head>
 <body>
 	<div layout:fragment="content" class="container-fluid" style="background-color: #e3e2e2">
 		<div class="row">
 			<div class="col-sm-12">
 				<img src="/img/p4/p42.jpg" />
+				<img id="share" src="/img/p4/share.png" width="200px" style="display: none; position: absolute; z-index: 1; left: 400px; top: 30px" />
 			</div>
 			<p class="text-center">
 				<a href="#" class="btn btn-primary btn-lg" style="background: #1c2c58; width: 400px">点击运付费抢松塔（限量）</a>
@@ -18,7 +24,7 @@
 				<a href="#" class="btn btn-primary btn-lg" style="background: #1c2c58; width: 400px">点击参与预售</a>
 			</p>
 			<p class="text-center">
-				<button class="btn btn-warning btn-lg" style="background: #f26522; width: 400px; color: white">点击分享页面</button>
+				<button class="btn btn-warning btn-lg" onclick="showShare()" style="background: #f26522; width: 400px; color: white">点击分享页面</button>
 			</p>
 		</div>
 	</div>
