@@ -2,6 +2,8 @@ var _clickCount = 0;
 
 function squirrelUp() {
 	if (_clickCount < 3) {
+		_clickCount++;
+		
 		// 隐藏按钮
 		$("#button").hide(1, function () {
 			// 松鼠向上移动
@@ -19,15 +21,12 @@ function squirrelUp() {
 					var pineconeTop = $("#background").height() - $("#pinecone").height();
 					$("#pinecone").animate({'top': pineconeTop + 'px'}, "slow", function () {
 						// 页面淡出
-						$("img").fadeOut(5000, function () {
-							alert(_clickCount);
-							//location.href = "/production";
+						$("body").fadeOut(5000, function () {
+							location.href = "/home/production";
 						});
 					});
 				}
 			});
 		});
-		
-		_clickCount++;
 	}
 }
