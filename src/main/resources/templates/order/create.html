@@ -4,57 +4,90 @@
 	layout:decorator="layout">
 <head>
 <title>填写地址</title>
+<script type="text/javascript">
+	var _ratio = 1.0;
+
+	$(function() {
+		scalingByRatio();
+	});
+
+	function scalingByRatio() {
+		var width = $(document.body).width();
+		_ratio = parseFloat(width / 640);
+
+		$(".container").css({
+			"padding-left" : 50 * _ratio,
+			"padding-right" : 50 * _ratio
+		});
+		$(".row").css({
+			"padding-left" : 20 * _ratio,
+			"padding-right" : 20 * _ratio
+		});
+		$("#topImg").css({
+			"width" : 640 * _ratio,
+			"height" : 533 * _ratio
+		});
+		$("#topImg").css({
+			"width" : 640 * _ratio,
+			"height" : 533 * _ratio
+		});
+		$("p").css({
+			"font-size" : 28 * _ratio + "px"
+		});
+		$("label").css({
+			"font-size" : 20 * _ratio + "px"
+		});
+		$("button").css({
+			"width" : 300 * _ratio,
+			"font-size" : 32 * _ratio + "px"
+		});
+	}
+</script>
 </head>
 <body>
-	<div layout:fragment="content" class="container-fluid"
-		style="background-color: #e3e2e2">
-		<div class="row">
-			<div class="col-sm-12">
-				<img src="/img/p4/p41.jpg" />
-			</div>
+	<div layout:fragment="content" style="background-color: #e3e2e2">
+		<img id="topImg" src="/img/p4/p41.jpg" />
+		<div class="container" style="padding: 70px">
 			<p>您已获得牛社马尾松塔试吃权，请填写以下信息，我们将尽快安排配送：</p>
-			<div style="background-color: white">
-				<br />
+			<div class="row" style="background-color: white; padding: 20px">
 				<form class="form-horizontal" role="form" method="post"
 					th:action="@{/order/create}" th:object="${order}">
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('reveiverName')}? 'has-error'">
-						<label for="reveiverName" class="col-sm-2 control-label">收塔人</label>
-						<div class="col-sm-4">
+						<label for="reveiverName" class="col-xs-3 control-label">收塔人</label>
+						<div class="col-xs-9">
 							<input type="text" class="form-control" maxlength="20"
 								th:field="*{reveiverName}" />
 						</div>
 					</div>
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('mobile')}? 'has-error'">
-						<label for="mobile" class="col-sm-2 control-label">手机号码</label>
-						<div class="col-sm-4">
+						<label for="mobile" class="col-xs-3 control-label">手机号码</label>
+						<div class="col-xs-9">
 							<input type="text" class="form-control" maxlength="20"
 								th:field="*{mobile}" />
 						</div>
 					</div>
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('address')}? 'has-error'">
-						<label for="address" class="col-sm-2 control-label">详细地址</label>
-						<div class="col-sm-4">
+						<label for="address" class="col-xs-3 control-label">详细地址</label>
+						<div class="col-xs-9">
 							<input type="text" class="form-control" maxlength="200"
 								th:field="*{address}" />
 						</div>
 					</div>
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('remark')}? 'has-error'">
-						<label for="remark" class="col-sm-2 control-label">备注</label>
-						<div class="col-sm-4">
+						<label for="remark" class="col-xs-3 control-label">备注</label>
+						<div class="col-xs-9">
 							<input type="text" class="form-control" maxlength="1000"
 								th:field="*{remark}" />
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-6">
-							<button type="submit" class="btn btn-primary"
-								style="background-color: #1c2c58">点击提交</button>
-						</div>
-					</div>
+					<p class="text-center">
+						<button type="submit" class="btn btn-lg btn-primary"
+							style="background-color: #1c2c58">点击提交</button>
+					</p>
 					<p>*提交后会进入分享页面，您可以忽略页面中的购买按钮。</p>
 				</form>
 			</div>

@@ -6,9 +6,23 @@
 	<title>人物选择</title>
 	
     <script type="text/javascript">
+		var _ratio = 1.0;
+
 		$(function () {
 			$("body").fadeIn(1000);
+			
+			scalingByRatio();
 		});
+    	
+    	function scalingByRatio() {
+    		var width = $(document.body).width();
+    		_ratio = parseFloat(width / 640);
+    		
+			$("img").css({
+		        "width": 640 * _ratio,
+		        "height": 1080 * _ratio
+		    });
+    	}
 	</script>
 </head>
 <body style="display: none">
