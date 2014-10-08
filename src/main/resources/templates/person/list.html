@@ -4,17 +4,15 @@
 	layout:decorator="layout">
 <head>
 	<title>人物选择</title>
-    <style>
-		#avatar > div.row {
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-	</style>
-    
     <script type="text/javascript">
     	var _ratio = 1.0;
 
     	$(function () {
+    		$("#avatar > div.row").css({
+    			"margin-top": "20px",
+    			"margin-bottom": "20px"
+    		});
+    		
 			$("#avatar img").each(function(index, element) {
 				var img = $(element);
             	var imgUrl = img.attr("src");

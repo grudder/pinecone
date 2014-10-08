@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PersonController
 {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String person(HttpServletRequest request)
+    public String list(HttpServletRequest request)
     {
         if (request.getSession().getAttribute("user") != null)
         {
